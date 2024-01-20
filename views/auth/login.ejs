@@ -1,0 +1,36 @@
+<div class="w-50 mx-auto p-4 shadow mt-5">
+  <h1 class="text-center">Đăng nhập</h1>
+
+  <% if (msg.length) { %>
+  <div class="alert alert-danger mt-2"><%= msg %></div>
+
+  <% } %> <% if (msgSuccess.length) { %>
+  <div class="alert alert-success mt-2"><%= msgSuccess %></div>
+  <% } %>
+
+  <form action="" method="post">
+    <div class="mb-3">
+      <label for="" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder="Email..."
+        value="<%= req.old.email %>"
+      />
+      <div style="color: red"><%= req.errors.email %></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Paswword</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="Password..."
+      />
+      <div style="color: red"><%= req.errors.password %></div>
+    </div>
+    <button class="btn btn-primary w-100">Đăng nhập</button>
+  </form>
+</div>
