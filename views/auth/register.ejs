@@ -1,10 +1,8 @@
 <div class="w-50 mx-auto p-4 shadow mt-5">
-  <h1 class="text-center">Đăng nhập</h1>
+  <h1 class="text-center">Đăng ký</h1>
 
   <% if (msg.length) { %>
   <div class="alert alert-danger mt-2"><%= msg %></div>
-  <% } %> <% if (msgSuccess.length) { %>
-  <div class="alert alert-success mt-2"><%= msgSuccess %></div>
   <% } %>
 
   <form action="" method="post">
@@ -15,7 +13,7 @@
         class="form-control"
         name="email"
         placeholder="Email..."
-        value="<%= req.old.email %>"
+        value="<%= req.old.email  %>"
       />
       <div style="color: red"><%= req.errors.email %></div>
     </div>
@@ -30,10 +28,11 @@
       />
       <div style="color: red"><%= req.errors.password %></div>
     </div>
-    <button class="btn btn-primary w-100">Đăng nhập</button>
+    <button class="btn btn-primary w-100">Đăng ký</button>
     <hr />
     <p class="text-center">
-      Bạn chưa có tài khoản, đăng ký <a href="/dang-ky">tại đây</a>
+      Bạn đã có tài khoản, quay lại trang đăng nhập
+      <a href="/dang-nhap">tại đây</a>
     </p>
   </form>
 </div>

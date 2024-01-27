@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Device extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,30 +9,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Device, {
+      Device.belongsTo(models.User, {
         foreignKey: "user_id",
-        as: "devices",
+        as: "user",
       });
     }
   }
 
-  User.init(
+  Device.init(
     {
       //Khai báo các cột trong table
       id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-      name: { type: DataTypes.STRING },
-      email: { type: DataTypes.STRING },
-      password: { type: DataTypes.STRING },
+      user_id: { type: DataTypes.INTEGER },
+      browser: { type: DataTypes.STRING },
+      operating: { type: DataTypes.STRING },
       status: { type: DataTypes.BOOLEAN },
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: "Device",
       //Mặc định Sequelize có sẵn 2 trường: createdAt, updatedAt
       createdAt: "created_at",
       updatedAt: "updated_at",
-      tableName: "users", //Tên table trong DB
+      tableName: "devices", //Tên table trong DB
     }
   );
-  return User;
+  return Device;
 };

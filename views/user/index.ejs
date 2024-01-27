@@ -1,0 +1,36 @@
+<div class="w-50 mx-auto p-4 shadow mt-5">
+  <h2 class="text-center mb-3">Cập nhật thông tin tài khoản</h2>
+
+  <% if (msgInfo.length) { %>
+  <div class="alert alert-danger mt-2"><%= msgInfo %></div>
+  <% } %>
+
+  <form action="" method="post">
+    <div class="mb-3">
+      <label for="" class="form-label">UserName</label>
+      <input
+        type="text"
+        class="form-control"
+        name="userName"
+        placeholder="Tên..."
+        value="<%= user.name %>"
+      />
+      <div style="color: red"><%= req.errors.userName %></div>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder="Email..."
+        value="<%= user.email %>"
+      />
+      <div style="color: red"><%= req.errors.email %></div>
+    </div>
+    <div class="d-flex justify-content-end gap-1">
+      <button class="btn btn-primary">Lưu</button>
+      <a href="/" class="btn btn-danger">Hủy</a>
+    </div>
+  </form>
+</div>
